@@ -1,0 +1,43 @@
+/* pacman.css */
+
+
+
+/* ===== board ===== */
+
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #ccc;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: center;
+}
+
+td.blocked {
+    background-color: #666;
+}
+
+td.player {
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+td.player div.cash {
+    margin-top: 5px;
+    font-size: smaller;
+}
+
+td.player div.cash::before {
+    content: '€';
+}
+
+td.cash {
+    background-color: goldenrod;
+}
+
+td.cash::before {
+    content: '€';
+}
