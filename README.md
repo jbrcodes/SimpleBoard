@@ -11,7 +11,7 @@ This is a simple example of a trivial board game, trying to show the following p
 
 ## What it Does
 
-The player shows its name and the number of squares it has visited. It is placed in an initial square. Every time the player is moved (randomly), that number remains in the square, also marked as visited. The player's count of visited squares is incremented and it is moved to a new unvisited square. This repeats a few times, with a delay between moves to maximize viewing pleasure. ;-)
+The player shows its name and the number of squares it has visited. It is placed in an initial square. Every time the player is moved (automatically and randomly), that number remains in the square, also marked as visited. The player's count of visited squares is incremented and it is moved to a new unvisited square. This repeats a few times, with a delay between moves to maximize viewing pleasure. ;-)
 
 
 ## Works With Firefox...
