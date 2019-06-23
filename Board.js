@@ -63,13 +63,11 @@ export class Board {
     }
 
     getSquareWithPlayer() {
-        // Find row/col from view; easier than searching model
-        var tdId = $('#player').parent().attr('id');
-        var r = Number( tdId[3] );  // row is 4th character of ID
-        var c = Number( tdId[5] );
+        // Find player row/col from view, instead of storing it in board too
+        var loc = Square.GetPlayerLocation();
 
         // Return the square from the model array
-        return this.model[r][c];
+        return this.model[loc.row][loc.col];
     }
 
 }

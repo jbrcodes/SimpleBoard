@@ -7,6 +7,19 @@ import { Player } from './Player.js';
 export class Square {
 
     // ------------------------------------------------------------------------
+    // Class Methods
+    // ------------------------------------------------------------------------
+
+    static GetPlayerLocation() {
+        // (This is not ideal; Square needs to know about Player implementation)
+        var tdId = $('#player').parent().attr('id');
+        var r = Number( tdId[3] );  // row is 4th character of ID
+        var c = Number( tdId[5] );
+
+        return { row: r, col: c };
+    }
+
+    // ------------------------------------------------------------------------
     // Init
     // ------------------------------------------------------------------------
 
