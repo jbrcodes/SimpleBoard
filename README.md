@@ -1,10 +1,6 @@
 README: SimpleBoard
 ===================
 
-## To Do
-
-* doc: components? state and renderer?
-
 
 This is a demo of a simple board game, trying to show the following practices:
 
@@ -21,14 +17,13 @@ The player is a purple object that contains its name and the number of squares i
 
 ## Works With Firefox...
 
-I use the JavaScript `import` statement and place each class in its own file. However, if I try to just load the `index.html` file into the browser, it will cause CORS errors on Chrome and Safari (and also on Firefox unless you make the 
-[following adjustment](https://support.mozilla.org/en-US/questions/1264280)).
+I use the JavaScript `import` statement and place each JavaScript class in its own file. As a result, if you try to just drop the `index.html` file on your browser, it will cause a CORS error on Chrome and Safari (and also on Firefox unless you make the [following adjustment](https://support.mozilla.org/en-US/questions/1264280)).
 
 One alternative is to run a development server in the folder. For example, if you have PHP installed, run this command in the folder that contains all of the files:
 ```
 php -S localhost:8000
 ```
-Then enter `localhost:8000` in your browser.
+Then surf on over to `localhost:8000` to run the demo.
 
 
 ## Small Methods and Meaningful Names
