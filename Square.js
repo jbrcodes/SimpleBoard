@@ -32,29 +32,29 @@ export class Square {
     // Other
     // ------------------------------------------------------------------------
 
-    setPlayer(p) {
-        // Model
-        this._player = p;
-        p.incrVisitCount();
-
-        // View
-        $('#'+this.id).append(p.elem);
+    get player() {
+        return this._player;
     }
 
-    removePlayer() {
+    set player(p) {
         // Model
-        var p = this._player;
-        this._player = null;
-        this.visited = true;
-        this.visitNum = p.visitCount;
+        if (p) {
+            p.incrVisitCount();
+        } else {
+            this.visited = true;
+            this.visitNum = this._player.visitCount;
+        }
+        this._player = p;
 
         // View
-        $('#'+this.id+' .player').remove();
-        $('#'+this.id)
-            .addClass('visited')
-            .text(this.visitNum);
-
-        return p;
+        if (p) {
+            $('#'+this.id).append(p.elem);  // append the player's view to the square's view
+        } else {
+            $('#'+this.id)
+                .empty()  // remove the player view
+                .addClass('visited')
+                .text(this.visitNum);
+        }
     }
 
 }

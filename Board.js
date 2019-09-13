@@ -71,14 +71,15 @@ export class Board {
         // The board's empty; all squares are available
         let pos = this._getRandomPosition();
         let sq = this.getSquare(pos.row, pos.col);
-        sq.setPlayer(p);
+        sq.player = p;
         this.position = pos;
     }
 
     movePlayer() {
         // Remove player from current square
         let sq = this.getSquare(this.position.row, this.position.col);
-        let p = sq.removePlayer();  // sets sq to 'visited'
+        let p = sq.player;
+        sq.player = null;  // sets sq to 'visited'
 
         // Find an unvisited square
         let pos = this._getRandomPosition();
@@ -89,7 +90,7 @@ export class Board {
         }
 
         // Add player to the square and update position
-        sq.setPlayer(p);
+        sq.player = p;
         this.position = pos;
     }
 

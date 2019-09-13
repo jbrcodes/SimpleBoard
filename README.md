@@ -4,8 +4,6 @@ README: SimpleBoard
 ## To Do
 
 * doc: components? state and renderer?
-* make player getter/setter in Square?
-* each class is only responsible for its own model/view, i.e. Board knows nothing about Square
 
 
 This is a demo of a simple board game, trying to show the following practices:
@@ -23,24 +21,26 @@ The player is a purple object that contains its name and the number of squares i
 
 ## Works With Firefox...
 
-The code will run as-is with Firefox; just drag/drop `index.html` on the browser. To use Chrome or Safari you'll need to start a local server due to CORS issues. For example, if you have PHP installed, run this command in the folder that contains `index.html`:
+I use the JavaScript `import` statement and place each class in its own file. However, if I try to just load the `index.html` file into the browser, it will cause CORS errors on Chrome and Safari (and also on Firefox unless you make the 
+[following adjustment](https://support.mozilla.org/en-US/questions/1264280)).
+
+One alternative is to run a development server in the folder. For example, if you have PHP installed, run this command in the folder that contains all of the files:
 ```
 php -S localhost:8000
 ```
+Then enter `localhost:8000` in your browser.
+
 
 ## Small Methods and Meaningful Names
 
 Writing code that runs correctly is important. Writing code that humans can understand is also important. For your own benefit, and for the benefit of someone else who may inherit your code someday, write code that is easy for humans to understand. Use variable and method names that are descriptive. Break big methods down into a number of smaller methods. Notice how short the methods are in this demo.
 
 
-## Each Class Only Knows About Its Own Implementation
-
-
-
-
-## Model and View => MVC
+## Model and View 
 
 The *model* is the data itself. The *view* is a visual representation of the model. Here the model is stored in JS objects, and the view consists of HTML elements added to the DOM that you see in the browser. Every time I modify the model, the corresponding part of the view needs to be updated.
+
+Each class has a model and view. And each class only knows about its own model and view. That means, the Board class does not know how squares are implemented. And a square does not know how to draw the player. Each class is responsible for its own view.
 
 
 ## Using a Leading Underscore in Method/Property Names
