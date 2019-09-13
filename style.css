@@ -25,7 +25,7 @@ td.visited {
 /* ===== player ===== */
 
 
-#player {
+.player {
     padding: 10px 0;
     background-color: rgba(0, 0, 255, 0.5);
 }

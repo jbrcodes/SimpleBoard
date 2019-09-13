@@ -1,6 +1,13 @@
 README: SimpleBoard
 ===================
 
+## To Do
+
+* doc: components? state and renderer?
+* make player getter/setter in Square?
+* each class is only responsible for its own model/view, i.e. Board knows nothing about Square
+
+
 This is a demo of a simple board game, trying to show the following practices:
 
 * Using OOP
@@ -26,7 +33,12 @@ php -S localhost:8000
 Writing code that runs correctly is important. Writing code that humans can understand is also important. For your own benefit, and for the benefit of someone else who may inherit your code someday, write code that is easy for humans to understand. Use variable and method names that are descriptive. Break big methods down into a number of smaller methods. Notice how short the methods are in this demo.
 
 
-## Model and View
+## Each Class Only Knows About Its Own Implementation
+
+
+
+
+## Model and View => MVC
 
 The *model* is the data itself. The *view* is a visual representation of the model. Here the model is stored in JS objects, and the view consists of HTML elements added to the DOM that you see in the browser. Every time I modify the model, the corresponding part of the view needs to be updated.
 

@@ -9,14 +9,18 @@
     // ------------------------------------------------------------------------
 
     constructor(name) {
+        // Model
         this.name = name;
         this.visitCount = 0;
+
+        // View
         this.elem = this._createView();  // <div> element
     }
 
     _createView() {
         var elem = $('<div>')
-            .attr('id', 'player');
+            .attr('id', this.name)
+            .addClass('player');
         
         return elem;
     }

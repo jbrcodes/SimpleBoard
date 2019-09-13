@@ -12,9 +12,10 @@ export class Board {
 
     constructor(size) {
         this.size = size;
+        this.position = { row: -1, col: -1 };  // player's position (row/col)
 
-        this.model = this._createModel();
-        this.elem = this._createView();
+        this.model = this._createModel();  // a 2-dim array of Square objs
+        this.elem = this._createView();  // a <table> elem
     }
 
     _createModel() {
@@ -23,8 +24,7 @@ export class Board {
         for (let r=0; r<this.size; r++) {
             model.push( [] );  // start a new row
             for ( let c=0; c<this.size; c++) {
-                let sqId = `sq_${r}-${c}`;
-                model[r].push( new Square(sqId) );  // push a new Square on current row
+                model[r].push( new Square(r, c) );  // push a new Square on current row
             }
         }
 
@@ -38,14 +38,11 @@ export class Board {
             let trElem = $('<tr>');
 
             for (let c=0; c<this.size; c++) {
-                let tdId = `sq_${r}-${c}`;
-                // Append a new <td> to trElem
-                $('<td>')
-                    .attr('id', tdId)
-                    .appendTo(trElem);
+                let sq = this.getSquare(r, c);
+                $(trElem).append(sq.elem);  // append the square's view (a <td> elem)
             }
 
-            $(tableElem).append(trElem);
+            $(tableElem).append(trElem);  // append the <tr> to <table>
         }
 
         return tableElem;
@@ -55,19 +52,45 @@ export class Board {
     // Squares
     // ------------------------------------------------------------------------
 
-    getRandomSquare() {
+    getSquare(row, col) {
+        return this.model[row][col];
+    }
+
+    _getRandomPosition() {
         let r = Math.floor(Math.random() * this.size);
         let c = Math.floor(Math.random() * this.size);
 
-        return this.model[r][c];
+        return { row: r, col: c };
     }
 
-    getSquareWithPlayer() {
-        // Find player row/col from view, instead of storing it in board too
-        var loc = Square.GetPlayerLocation();
+    // ------------------------------------------------------------------------
+    // Player
+    // ------------------------------------------------------------------------
 
-        // Return the square from the model array
-        return this.model[loc.row][loc.col];
+    addPlayer(p) {
+        // The board's empty; all squares are available
+        let pos = this._getRandomPosition();
+        let sq = this.getSquare(pos.row, pos.col);
+        sq.setPlayer(p);
+        this.position = pos;
+    }
+
+    movePlayer() {
+        // Remove player from current square
+        let sq = this.getSquare(this.position.row, this.position.col);
+        let p = sq.removePlayer();  // sets sq to 'visited'
+
+        // Find an unvisited square
+        let pos = this._getRandomPosition();
+        sq = this.getSquare(pos.row, pos.col);
+        while (sq.visited) {
+            pos = this._getRandomPosition();
+            sq = this.getSquare(pos.row, pos.col);
+        }
+
+        // Add player to the square and update position
+        sq.setPlayer(p);
+        this.position = pos;
     }
 
 }

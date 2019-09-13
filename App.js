@@ -16,7 +16,7 @@ import { Player } from './Player.js';
         this.board = null;  // JS obj
         this.elem = null;  // app <div>
 
-        // Do stuff
+        // Do initialization
         this._initBoard(divId, boardSize);
         this._initPlayer();
         this._runAnimation();
@@ -37,9 +37,8 @@ import { Player } from './Player.js';
     }
 
     _initPlayer() {
-        var p = new Player('Julio');
-        let sq = this.board.getRandomSquare();
-        sq.setPlayer(p);  // this is the first visited square
+        let p = new Player('Julio');
+        this.board.addPlayer(p);
     }
 
     async _runAnimation() {
@@ -47,24 +46,10 @@ import { Player } from './Player.js';
         const visitLimit = 5;
 
         while (visitCount < visitLimit) {
-            await this._pause(1000);  // wait a moment...
-            this._movePlayer();
+            await this._pause(500);  // wait a moment...
+            this.board.movePlayer();
             visitCount++;
         }
-    }
-
-    _movePlayer() {
-        // Remove player from current square
-        let sq = this.board.getSquareWithPlayer();
-        let p = sq.removePlayer();  // sets sq to 'visited'
-
-        // Find an unvisited square
-        while (sq.visited) {
-            sq = this.board.getRandomSquare();
-        }
-
-        // Add player to the square
-        sq.setPlayer(p);
     }
 
     async _pause(ms) {
