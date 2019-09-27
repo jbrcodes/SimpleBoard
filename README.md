@@ -15,15 +15,11 @@ This is a demo of a simple board game, trying to show the following practices:
 The player is a purple object that contains its name and the number of squares it has visited. Every time the player is moved (automatically and randomly), the old square is marked as visited, with the move number. The player's count of visited squares is incremented and it is moved to a new unvisited square. This repeats a few times, with a delay between moves to maximize viewing pleasure. ;-)
 
 
-## Works With Firefox...
+## How to Run It
 
-I use the JavaScript `import` statement and place each JavaScript class in its own file. As a result, if you try to just drop the `index.html` file on your browser, it will cause a CORS error on Chrome and Safari (and also on Firefox unless you make the [following adjustment](https://support.mozilla.org/en-US/questions/1264280)).
+I use the JavaScript `import` statement and place each JavaScript class in its own file. (This is standard procedure when you use a JS framework like React.) As a result, if you try to just drag & drop the `index.html` file onto your browser, it will cause a CORS error on Chrome and Safari (and also on Firefox unless you make the [following adjustment](https://support.mozilla.org/en-US/questions/1264280)).
 
-One alternative is to run a development server in the folder. For example, if you have PHP installed, run this command in the folder that contains all of the files:
-```
-php -S localhost:8000
-```
-Then surf on over to `localhost:8000` to run the demo.
+One alternative is to run a development server in the folder. For example, you can install Node.js, which you will be using in a later project anyway. Once you have installed it, type `node server` in your project folder, then enter `localhost:3000` in your browser (any browser!) to run the demo.
 
 
 ## Small Methods and Meaningful Names
