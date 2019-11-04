@@ -46,7 +46,7 @@ import { Player } from './Player.js';
         const visitLimit = 5;
 
         while (visitCount < visitLimit) {
-            await this._pause(500);  // wait a moment...
+            await this._pause(1000);  // wait a moment...
             this.board.movePlayer();
             visitCount++;
         }
