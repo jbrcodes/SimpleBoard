@@ -17,9 +17,10 @@ The player is a purple object that contains its name and the number of squares i
 
 ## How to Run It
 
-I use the JavaScript `import` statement and place each JavaScript class in its own file. (This is standard procedure when you use a JS framework like React.) As a result, if you try to just drag & drop the `index.html` file onto your browser, it will cause a CORS error on Chrome and Safari (and also on Firefox unless you make the [following adjustment](https://support.mozilla.org/en-US/questions/1264280)).
+I use the JavaScript `import` statement and place each JavaScript class in its own file. (This is standard procedure when you use a JS framework like React.) As a result, you can't just drag & drop the `index.html` file onto your browser; it will cause a CORS error. The solution is to start a server in the project folder. Here are two alternatives:
 
-One alternative is to run a development server in the folder. For example, you can install Node.js, which you will be using in a later project anyway. Once you have installed Node, as well as the `http-server` package, start the server in your project folder and the demo will work in your browser (any browser!).
+1. Node.js: Install the `http-server` NPM package and start it in the project folder.
+2. Python 3: Enter `python3 -m http.server` in the project folder.
 
 
 ## Small Methods and Meaningful Names

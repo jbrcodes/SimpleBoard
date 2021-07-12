@@ -1,11 +1,11 @@
 /* App.js */
 
-import { Board } from './Board.js';
-import { Player } from './Player.js';
+import Board from './Board.js';
+import Player from './Player.js';
 
 
 
- export class App {
+class App {
 
     // ------------------------------------------------------------------------
     // Init
@@ -57,3 +57,5 @@ import { Player } from './Player.js';
     }
 
 }
+
+export default App;

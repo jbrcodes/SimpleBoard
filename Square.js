@@ -1,10 +1,8 @@
 /* Square.js */
 
-import { Player } from './Player.js';
 
 
-
-export class Square {
+class Square {
 
     // ------------------------------------------------------------------------
     // Init
@@ -58,3 +56,5 @@ export class Square {
     }
 
 }
+
+export default Square;

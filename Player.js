@@ -1,8 +1,7 @@
 /* Player.js */
 
 
-
- export class Player {
+class Player {
 
     // ------------------------------------------------------------------------
     // Init
@@ -38,3 +37,5 @@
     }
 
 }
+
+export default Player;

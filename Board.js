@@ -1,10 +1,10 @@
 /* Board.js */
 
-import { Square } from './Square.js';
+import Square from './Square.js';
 
 
 
-export class Board {
+class Board {
 
     // ------------------------------------------------------------------------
     // Init
@@ -95,3 +95,5 @@ export class Board {
     }
 
 }
+
+export default Board;

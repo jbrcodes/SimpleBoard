@@ -36,12 +36,9 @@
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="module">
-            import { App } from './App.js';
+            import App from './App.js';
 
-            // Recommended way of doing it by waiting 'till the page has finished loading
-            $(function () {
-                var app = new App('my-app', 5);
-            });
+            let app = new App('my-app', 5);
         </script>
     </body>
 </html>
