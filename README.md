@@ -47,3 +47,4 @@ In order to (sort of) simulate this ability, programmers often use a leading und
 Every modification to a document's DOM causes part of the DOM to be redrawn, because adding/removing an element can very easily change the visual representation of the document. Therefore it is a good habit to minimize the number of changes you make to the DOM. If possible, make one big change instead of many small ones.
 
 For example, when an app is first created, it is common to dynamically create a lot of HTML elements. It is best to (for example) create your main `<div>`, and add everything to it before you append it to the DOM. The *wrong* way to do it is to immediately add your main `<div>` to the DOM and then append lots of new elements to it afterwards, forcing at least a partial redraw of the DOM each time you append something.
+
